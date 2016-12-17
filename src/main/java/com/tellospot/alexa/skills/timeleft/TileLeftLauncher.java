@@ -3,9 +3,11 @@ package com.tellospot.alexa.skills.timeleft;
 import com.amazon.speech.Sdk;
 import com.amazon.speech.speechlet.Speechlet;
 import com.amazon.speech.speechlet.servlet.SpeechletServlet;
+import com.tellospot.alexa.skills.timeleft.speechlets.TileLeftSpeechlet;
 import org.apache.log4j.BasicConfigurator;
 import org.eclipse.jetty.server.*;
 import org.eclipse.jetty.servlet.ServletContextHandler;
+import org.eclipse.jetty.servlet.ServletHolder;
 import org.eclipse.jetty.util.ssl.SslContextFactory;
 
 /**
@@ -48,7 +50,7 @@ public class TileLeftLauncher {
         ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
         context.setContextPath("/");
         server.setHandler(context);
-        //context.addServlet(new ServletHolder(createServlet(new HelloWorldSpeechlet())), "/");
+        context.addServlet(new ServletHolder(createServlet(new TileLeftSpeechlet())), "/");
         server.start();
         server.join();
     }
