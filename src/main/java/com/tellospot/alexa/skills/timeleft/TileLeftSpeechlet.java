@@ -1,4 +1,4 @@
-package com.tellospot.alexa.skills.timeleft.speechlets;
+package com.tellospot.alexa.skills.timeleft;
 
 import com.amazon.speech.speechlet.*;
 import com.amazon.speech.ui.PlainTextOutputSpeech;
